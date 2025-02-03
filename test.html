@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Input Field</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        .input-container {
+            position: relative;
+            width: 350px;
+            margin: 0 auto;
+        }
+
+        /* Input Field */
+        input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            outline: none;
+            transition: all 0.4s ease;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* Hover Effect */
+        input:hover {
+            border-color: #00c9ff;
+            box-shadow: 0 4px 15px rgba(0, 201, 255, 0.3);
+        }
+
+        /* Focus Effect */
+        input:focus {
+            border-color: #00c9ff;
+            box-shadow: 0 0 20px #00c9ff, 0 0 50px rgba(0, 201, 255, 0.4);
+        }
+
+        /* Floating Label */
+        .input-container label {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #0f2027, #203a43);
+            padding: 0 10px;
+            border-radius: 5px;
+        }
+
+        /* Label Animation */
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            top: -10px;
+            font-size: 14px;
+            color: #00c9ff;
+        }
+
+        /* Placeholder Styling */
+        input::placeholder {
+            color: transparent; /* Hide the placeholder for floating effect */
+        }
+
+        /* Optional Glow Effect */
+        .input-container:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            background: linear-gradient(135deg, rgba(0, 201, 255, 0.2), rgba(0, 201, 255, 0.1));
+            filter: blur(15px);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .input-container:hover:after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <label for="name">Your Name</label>
+    </div>
+</body>
+</html>
